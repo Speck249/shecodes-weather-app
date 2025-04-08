@@ -12,57 +12,54 @@
 
 <body>
   <div class="weather-app">
-
-      <header>
-        <a href="/" aria-label="Reload Homepage">
-          <img src="./images/shecodes-logo.png" width="1216" height="339" alt="" aria-label="Reload" class="logo-icon" />
-        </a>
+    <header>
+      <a href="/" aria-label="Reload Homepage">
+        <img src="./images/shecodes-logo.png" width="1216" height="339" alt="" aria-label="Reload" class="logo-icon" />
+      </a>
         
-        <form id="search-form" class="search-bar">
-          <input
-            type="search"
-            id="search-input"
-            class="search-input"
-            placeholder="Enter a City.."
-            autofocus
-            required            
-          />
-          <input type="submit" value="Search" aria-label="Search for City" class="search-button" />
-        </form>
-      </header>
+      <form id="search-form" class="search-bar">
+        <input
+          type="search"
+          id="search-input"
+          class="search-input"
+          placeholder="Enter a City.."
+          autofocus
+          required            
+        />
+        <input type="submit" value="Search" aria-label="Search for City" class="search-button" />
+      </form>
+    </header>
 
-      <main>
-        <div class="current-weather-container">
-          <div class="current-weather">
-            <h1 id="current-city"></h1>
-            <div class="current-details">
-              <p id="current-date"></p>
-              Expect <span id="current-description"></span> <br />
-              <span id="current-humidity" class="humidity-level"></span> Humidity &
-              Wind Speed of <span id="current-wind" class="wind-speed"></span> km/h
-            </div>
-          </div>
-
-          <div class="current-temperature">
-            <span id="current-icon"></span>
-            <span id="current-temp" class="current-temperature-value"></span>
-            <span class="current-temperature-unit">°C</span>
+    <main>
+      <div class="current-weather-container">
+        <div class="current-weather">
+          <h1 id="current-city"></h1>
+          <div class="current-details">
+            <p id="current-date"></p>
+            Expect <span id="current-description"></span> <br />
+            <span id="current-humidity" class="humidity-level"></span> Humidity &
+            Wind Speed of <span id="current-wind" class="wind-speed"></span> km/h
           </div>
         </div>
 
-        <div id="weather-forecast" class="weather-forecast-information"></div>
-      </main>
+        <div class="current-temperature">
+          <span id="current-icon"></span>
+          <span id="current-temp" class="current-temperature-value"></span>
+          <span class="current-temperature-unit">°C</span>
+        </div>
+      </div>
 
-      <footer>
-        <p>
-          This project was coded by <a href="#" target="_blank">Rediet Kifle</a> and is open-sourced on
-          <a href="https://github.com/Speck249/shecodes-weather-app-2" target="_blank" aria-label="Navigate to GitHub">GitHub</a> and hosted on
-          <a href="https://shecodes-weather-app-pr.netlify.app/" target="_blank" aria-label="Navigate to Website"> Netlify</a>.
-        </p>
-      </footer>
-    </div>
-    <script src="src/index.js"></script>
-  </body>
+      <div id="weather-forecast" class="weather-forecast-information"></div>
+    </main>
 
-  
+    <footer>
+      <p>
+        This project was coded by <a href="#" target="_blank">Rediet Kifle</a> and is open-sourced on
+        <a href="https://github.com/Speck249/shecodes-weather-app-2" target="_blank" aria-label="Navigate to GitHub">GitHub</a> and hosted on
+        <a href="https://shecodes-weather-app-pr.netlify.app/" target="_blank" aria-label="Navigate to Website"> Netlify</a>.
+      </p>
+    </footer>
+  </div>
+  <script src="src/index.js"></script>
+</body>
 </html>
