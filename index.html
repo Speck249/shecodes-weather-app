@@ -14,7 +14,7 @@
   <div class="weather-app">
     <header>
       <a href="/" aria-label="Reload Homepage">
-        <img src="./images/shecodes-logo.png" width="1216" height="339" alt="" aria-label="Reload" class="logo-icon" />
+        <img src="./images/shecodes-logo.png" width="1216" height="339" alt="Shecodes Logo" aria-label="Reload" class="logo-icon" />
       </a>
         
       <form id="search-form" class="search-bar">
@@ -26,17 +26,17 @@
           autofocus
           required            
         />
-        <input type="submit" value="Search" aria-label="Search for City" class="search-button" />
+        <button type="submit" class="search-button">🔍</button>
       </form>
     </header>
 
     <main>
-      <div class="current-weather-container">
+      <section class="current-weather-container">
         <div class="current-weather">
           <h1 id="current-city"></h1>
           <div class="current-details">
-            <p id="current-date"></p>
-            Expect <span id="current-description"></span> <br />
+            <p id="current-date" style="display: inline;"></p> 
+            - Expect <span id="current-description"></span> <br />
             <span id="current-humidity" class="humidity-level"></span> Humidity &
             Wind Speed of <span id="current-wind" class="wind-speed"></span> km/h
           </div>
@@ -47,9 +47,9 @@
           <span id="current-temp" class="current-temperature-value"></span>
           <span class="current-temperature-unit">°C</span>
         </div>
-      </div>
+      </section>
 
-      <div id="weather-forecast" class="weather-forecast-information"></div>
+      <section id="weather-forecast" class="weather-forecast-information"></section>
     </main>
 
     <footer>
