@@ -1,20 +1,26 @@
-// Add an event listener to the form
-let searchForm = document.querySelector("#search-form");
+// Add an event listener to Form
+const searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", handleSubmit);
 
+
+// handle search input
 function handleSubmit(event) {
   event.preventDefault();
-  let cityInput = document.querySelector("#search-input");
+
+  const cityInput = document.querySelector("#search-input");
   if (!cityInput.value) {
     alert("Please enter a city name.");
     return;
   }
+  
   fetchWeatherData(cityInput.value);
 }
 
+
+// Fetch Weather Data
 function fetchWeatherData(query) {
-  let key = "4b10c2a77454teo9d0ff304c4b0d513b";
-  let url = `https://api.shecodes.io/weather/v1/current?query=${query}&key=${key}&units=metric`;
+  const key = "4b10c2a77454teo9d0ff304c4b0d513b";
+  const url = `https://api.shecodes.io/weather/v1/current?query=${query}&key=${key}&units=metric`;
   axios
     .get(url)
     .then(updateTemperature)
@@ -24,6 +30,8 @@ function fetchWeatherData(query) {
     });
 }
 
+
+// Update temperature display with API response
 function updateTemperature(response) {
   let currentCity = document.querySelector("#current-city");
   currentCity.innerHTML = response.data.city;
@@ -43,7 +51,8 @@ function updateTemperature(response) {
   currentWindSpeed.innerHTML = `${response.data.wind.speed}`;
 
   let currentIcon = document.querySelector("#current-icon");
-  currentIcon.innerHTML = `<img src="${response.data.condition.icon_url}" alt="${response.data.condition.icon}" class="current-temperature-icon" />`;
+  currentIcon.innerHTML = `<img src="${response.data.condition.icon_url}
+  "alt="${response.data.condition.icon}" class="current-temperature-icon" />`;
 
   let currentTemperature = document.querySelector("#current-temp");
   currentTemperature.innerHTML = Math.round(response.data.temperature.current);
@@ -51,9 +60,11 @@ function updateTemperature(response) {
   fetchForecast(response.data.city);
 }
 
+
+// Fetch weekly weather forecast
 function fetchForecast(query) {
-  let key = "4b10c2a77454teo9d0ff304c4b0d513b";
-  let url = `https://api.shecodes.io/weather/v1/forecast?query=${query}&key=${key}&units=metric`;
+  const key = "4b10c2a77454teo9d0ff304c4b0d513b";
+  const url = `https://api.shecodes.io/weather/v1/forecast?query=${query}&key=${key}&units=metric`;
   axios
     .get(url)
     .then(displayForecast)
@@ -62,26 +73,23 @@ function fetchForecast(query) {
     });
 }
 
+
+// Display weekly weather forecast
 function displayForecast(response) {
   let forecastData = "";
+
   response.data.daily.forEach((item, index) => {
-    if (index < 6) {
+    if (index < 7) {
       forecastData += `
         <div class="weather-forecast-data">
-          <div class="weather-forecast-day">
-            ${formatDay(item.time)}
+          <p class="weather-forecast-day">${formatDay(item.time)}</p>
+          <div class="weather-icon">
+            <img src="${item.condition.icon_url}" alt="${item.condition.icon}" class="weather-forecast-icon" />
           </div>
-          <div class="wf-icon">
-          <img src="${item.condition.icon_url}" alt="${
-        item.condition.icon
-      }" class="weather-forecast-icon" />
-         </div>
-          <div class="weather-forecast-high-low">
-            <span class="wf-high">${Math.round(
-              item.temperature.maximum
-            )}°</span>
+          <p class="weather-forecast-high-low">
+            <span class="wf-high">${Math.round(item.temperature.maximum)}°</span>
             <span class="wf-low">${Math.round(item.temperature.minimum)}°</span>
-          </div>
+          </p>
         </div>
       `;
     }
@@ -91,11 +99,14 @@ function displayForecast(response) {
   currentForecast.innerHTML = forecastData;
 }
 
+
+// Format day and time for forecast display
 function formatDay(time) {
   let date = new Date(time * 1000);
   let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   return days[date.getDay()];
 }
+
 
 function formatDateTime(date) {
   let minutes = date.getMinutes();
@@ -124,6 +135,5 @@ function formatDateTime(date) {
   return `${today} ${hours}:${minutes}`;
 }
 
-// Initial fetch call
 fetchWeatherData("Addis Ababa");
  
