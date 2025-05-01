@@ -26,5 +26,3 @@ The SheCodes Weather App is a user-friendly web application that provides real-t
 
 ### Contributing
 * Contributions are welcome! If you have suggestions for improvements or new features, feel free to open an issue or submit a pull request.
-
-Thanks for stopping by!
